@@ -9,13 +9,10 @@ const recordSchema = mongoose.Schema({
     city: String,
     state: String,
     zip: Number,
-    country: String,
-    tags: [String],
-    selectedFile: String,
-    likeCount: {
-        type: Number,
-        default: 0
-    }, 
+    country: {
+        type: String,
+        default: "US"
+    },
     date: {
         type: Date,
         default: new Date()
