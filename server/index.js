@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import recordsRoutes from "./routes/records/records.js";
 import  path, { dirname } from 'path';
-// import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -20,8 +20,8 @@ server.use(cors());
 server.use('/api', recordsRoutes )
 
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 if (process.env.NODE_ENV === 'production') {
     server.use(express.static(path.join(__dirname, '../client/build')));
