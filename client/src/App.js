@@ -4,9 +4,8 @@ import './App.css';
 import Home from './components/Home/Home';
 import RecordsList from './components/RecordsList/RecordsList';
 import RecordSuccess from './components/Success/RecordSuccess';
-// import ArticleInfo from './components/articles/ArticleInfo';
 import RecordAdd from './components/Form/Form';
-// import ArticleEdit from './components/articles/ArticleEdit';
+
 
 function App() {
   return (
