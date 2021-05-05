@@ -6,12 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "dev": "concurrently \"nodemon index.js\" \"cd .. && cd client && npm run start\""
   },
   "keywords": [],
   "author": "Vlad Burlutskiy",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^6.0.2",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
