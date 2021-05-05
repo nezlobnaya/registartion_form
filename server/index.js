@@ -20,11 +20,11 @@ server.use('/api', recordsRoutes )
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
-    server.use(express.static(path.join(__dirname, '../client/build')));
+    server.use(express.static(path.join(__dirname, 'build')));
 
     // Handle React routing, return all requests to React app
-    server.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    server.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
 }
 const CONNECTION_URL = process.env.CONNECTION_URL;
