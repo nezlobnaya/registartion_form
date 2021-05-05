@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // Handle React routing, return all requests to React app
     server.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+        res.sendFile(__dirname, '../client/build', 'index.html');
     });
 }
 const CONNECTION_URL = process.env.CONNECTION_URL;
