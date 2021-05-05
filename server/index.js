@@ -18,7 +18,7 @@ server.get('/', (req, res) => {
     res.send(`<h2>${messageOFTheDay}</h2>`)
 })
 
-server.use('/records', recordsRoutes )
+server.use('/api', recordsRoutes )
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 

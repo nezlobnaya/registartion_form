@@ -22,8 +22,8 @@ export const createRecord = async (req, res) => {
     try {
         await newRecord.save();
 
-        res.status(201).json(newRecord);
-
+        res.status(201).json({ message: "Record created successfully!" });
+      
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
