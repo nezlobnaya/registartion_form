@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import recordsRoutes from "./routes/records/records.js";
-import  { dirname }from 'path';
+import  path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 dotenv.config();
@@ -23,15 +23,14 @@ server.use('/api', recordsRoutes )
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    server.use(express.static(__dirname, '../client/build'));
+
+ server.use(express.static(path.join(__dirname, '../client/build')));
 
     // Handle React routing, return all requests to React app
-    server.get('/', function(req, res) {
-        res.sendFile(__dirname, '../client/build', 'index.html');
-    });
-}
+server.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build'));
+});
+
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
