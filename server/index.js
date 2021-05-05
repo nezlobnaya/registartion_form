@@ -14,10 +14,7 @@ server.use(bodyParser.json({  exceeded: true }));
 server.use(bodyParser.urlencoded({  extended: true }));
 server.use(cors());
 
-server.get('/', (req, res) => {
-    const messageOFTheDay = process.env.MOTD || "Registration Form"
-    res.send(`<h2>${messageOFTheDay}</h2>`)
-})
+
 
 server.use('/api', recordsRoutes )
 
