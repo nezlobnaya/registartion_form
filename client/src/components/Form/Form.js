@@ -5,6 +5,12 @@ import { post } from 'axios';
 function RecordAdd(props) {
   const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: null }
   const [record, setRecord] = useState(state) 
+  const [checked, setChecked] = useState(false)
+
+  function toggle() {
+    setChecked(!checked)
+  
+  }
 
   function handleChange(event) { 
     setRecord({...record, [event.target.name]: event.target.value})
@@ -49,7 +55,10 @@ function RecordAdd(props) {
         </div>
         <div className="form-group">
           <label>Address2</label>
-          <input name="address2" type="text" value={record.address2} onChange={handleChange} className="form-control" />
+         <input type="checkbox"  onChange={toggle}  ></input>
+         {checked === true ? (
+           <input name="address2" placeholder="Enter Address 2" type="text"  value={record.address2} onChange={handleChange} className="form-control" required/>) :
+         (<input name="address2" type="text"  value={record.address2} onChange={handleChange} className="form-control" />)}
         </div>
         <div className="form-group">
           <label>City</label>
@@ -61,11 +70,11 @@ function RecordAdd(props) {
         </div>
         <div className="form-group">
           <label>Zip</label>
-          <input name="zip" placeholder="Enter minimum 5, maximum 9 digits" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" value={record.zip} onChange={handleChange} className="form-control" required/>
+          <input name="zip" placeholder="Enter minimum 5, maximum 9 digits" type="text" inputMode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" value={record.zip} onChange={handleChange} className="form-control" required/>
         </div>
         <div className="form-group">
           <label>Country</label>
-          <input name="country" type="text" value="US" className="form-control" />
+          <input name="country" type="text" value="US" className="form-control" readOnly/>
         </div>
         <div className="btn-group">
           <input type="submit" value="Submit" className="btn btn-primary" required/>

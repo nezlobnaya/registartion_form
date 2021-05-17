@@ -7,7 +7,7 @@ function RecordsList(props) {
   const [records, setRecords] = useState([])
 
 
-  useEffect(function() {
+  useEffect(() => {
     async function getRecords() {
       try {
         const response = await axios.get("/api/records");
