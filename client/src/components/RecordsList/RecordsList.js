@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import debounce from "lodash.debounce";
 
+
 function RecordsList(props) {
   const [records, setRecords] = useState([]);
   const [query, setQuery] = useState("");
@@ -56,16 +57,16 @@ function RecordsList(props) {
         .sort((a,b)=> {
             return b.date > a.date ? 1: -1
         }).map((record) => (
-        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" ,listStyleType: "none", paddingRight: "10px" }}key={record._id}>
-            <li>{record.first_name}</li>
-            <li>{record.last_name}</li>
-            <li>{record.address1}</li>
-            <li>{record.address2}</li>
-            <li>{record.city}</li>
-            <li>{record.state}</li>
-            <li>{record.zip}</li>
-            <li>{record.country}</li>
-            <li>{moment(record.date).toString()}</li>
+        <div class="list-group list-group-horizontal" key={record._id}>
+            <li class="list-group-item">{record.first_name}</li>
+            <li class="list-group-item">{record.last_name}</li>
+            <li class="list-group-item">{record.address1}</li>
+            <li class="list-group-item">{record.address2}</li>
+            <li class="list-group-item">{record.city}</li>
+            <li class="list-group-item">{record.state}</li>
+            <li class="list-group-item">{record.zip}</li>
+            <li class="list-group-item">{record.country}</li>
+            <li class="list-group-item">{moment(record.date).toString()}</li>
             <hr/>
         </div>
       ))}
