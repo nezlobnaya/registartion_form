@@ -8,9 +8,9 @@ import RecordAdd from '../Form/Form';
 function Main() {
     return(
       <Switch>
-        <Route exact path="/records/new" component={RecordAdd} />
+        <Route path="/records/new" component={RecordAdd} />
         <Route exact path="/records" component={RecordsList} />
-        <Route exact path="/success" component={RecordSuccess} />
+        <Route path="/success" component={RecordSuccess} />
         <Route exact path="/" component={Home} />
       </Switch>
     );
