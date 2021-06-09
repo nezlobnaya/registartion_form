@@ -1,7 +1,7 @@
 function Home() { 
     return (
       <div className="jumbotron">
-        <h1>Merkle is a great company to work for!</h1>
+        <h1>Per Aspera Ad Astra!!</h1>
       </div>
     );
   }
