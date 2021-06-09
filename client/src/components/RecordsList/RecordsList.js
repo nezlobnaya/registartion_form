@@ -57,16 +57,16 @@ function RecordsList(props) {
         .sort((a,b)=> {
             return b.date > a.date ? 1: -1
         }).map((record) => (
-        <div class="list-group list-group-horizontal" key={record._id}>
-            <li class="list-group-item">{record.first_name}</li>
-            <li class="list-group-item">{record.last_name}</li>
-            <li class="list-group-item">{record.address1}</li>
-            <li class="list-group-item">{record.address2}</li>
-            <li class="list-group-item">{record.city}</li>
-            <li class="list-group-item">{record.state}</li>
-            <li class="list-group-item">{record.zip}</li>
-            <li class="list-group-item">{record.country}</li>
-            <li class="list-group-item">{moment(record.date).toString()}</li>
+        <div className="list-group list-group-horizontal" key={record._id}>
+            <li className="list-group-item">{record.first_name}</li>
+            <li className="list-group-item">{record.last_name}</li>
+            <li className="list-group-item">{record.address1}</li>
+            <li className="list-group-item">{record.address2}</li>
+            <li className="list-group-item">{record.city}</li>
+            <li className="list-group-item">{record.state}</li>
+            <li className="list-group-item">{record.zip}</li>
+            <li className="list-group-item">{record.country}</li>
+            <li className="list-group-item">{moment(record.date).toString()}</li>
             <hr/>
         </div>
       ))}

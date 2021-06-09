@@ -3,7 +3,7 @@ import { post } from 'axios';
 
 
 function RecordAdd(props) {
-  const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: null }
+  const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: []}
   const [record, setRecord] = useState(state) 
   const [checked, setChecked] = useState(false)
 
