@@ -29,7 +29,7 @@ const recordSchema = mongoose.Schema({
         required: true
     },
     zip: {
-        type: String,
+        type: Number,
         required: [true, "Minimum 5, maximum 9 characters required"]
     },
     country: {
