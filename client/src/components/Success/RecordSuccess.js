@@ -5,7 +5,7 @@ export default function RecordSuccess() {
       <div className="row justify-content-center">
         <div className="col-10 col-sm-7 col-md-5 col-lg-4">
           <p>
-            Record created successfully. You are all set!
+          All set! Record created successfully. 
           </p>
           <p>
             Thank you!
