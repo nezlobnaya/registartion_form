@@ -6,6 +6,7 @@ export default function RecordSuccess() {
         <div className="col-10 col-sm-7 col-md-5 col-lg-4">
           <p>
           All set! Record created successfully. 
+          Click the link to view the records!  
           </p>
           <p>
             Thank you!
