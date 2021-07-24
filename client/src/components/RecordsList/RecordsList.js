@@ -39,7 +39,17 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
+  const deleteRecords = (id) => {
+    axios.delete(`/api/records/${id}`)
+    .then(() => {
+      setRecords(records.filter((record) => {
+        return record.id !== id;
+      }));
+    })
+    .catch(error => console.log(error));
+  };
 
+  
   return (
     <div>
       <h2>
