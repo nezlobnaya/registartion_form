@@ -10,7 +10,7 @@ function RecordsList(props) {
   const [query, setQuery] = useState("");
 
 
-
+console.log("PROPS", props)
   useEffect(() => {
     async function getRecords() {
       try {
@@ -39,7 +39,8 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
-  const deleteRecords = (id) => {
+ 
+  const handleDelete = (id) => {
     axios.delete(`/api/records/${id}`)
     .then(() => {
       setRecords(records.filter((record) => {
@@ -68,6 +69,7 @@ function RecordsList(props) {
             return b.date > a.date ? 1: -1
         }).map((record) => (
         <div className="list-group list-group-horizontal" key={record._id}>
+            <button onClick={() => (handleDelete(record._id))}>Delete</button>
             <li className="list-group-item">{record.first_name}</li>
             <li className="list-group-item">{record.last_name}</li>
             <li className="list-group-item">{record.address1}</li>
