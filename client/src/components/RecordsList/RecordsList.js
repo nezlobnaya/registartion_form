@@ -10,16 +10,16 @@ function RecordsList(props) {
   const [query, setQuery] = useState("");
 
 
-console.log("PROPS", props)
+  async function getRecords() {
+    try {
+      const response = await axios.get("/api/records");
+      setRecords(response.data);
+    } catch(error) {
+      console.log('error', error);
+    }
+  } 
+
   useEffect(() => {
-    async function getRecords() {
-      try {
-        const response = await axios.get("/api/records");
-        setRecords(response.data);
-      } catch(error) {
-        console.log('error', error);
-      }
-    }        
     getRecords();
   }, []);
 
@@ -39,16 +39,31 @@ console.log("PROPS", props)
     return debounce(changeHandler, 300);
   }, []);
 
- 
-  const handleDelete = (id) => {
-    axios.delete(`/api/records/${id}`)
-    .then(() => {
-      setRecords(records.filter((record) => {
-        return record.id !== id;
-      }));
-    })
-    .catch(error => console.log(error));
-  };
+ async function handleDelete(id){
+    try {
+      const response = await axios.delete(`/api/records/${id}`);
+      console.log(response.data.message);
+      // if (response.data.message === "Record deleted successfully.") { 
+      //   setRecords(records.filter((record) => {
+      //     return record.id !== id;
+      //   }));
+      // }
+      getRecords();
+    } catch(error) {
+      console.log('error', error);
+    }
+ }
+
+  // const handleDelete = (id) => {
+  //   axios.delete(`/api/records/${id}`)
+  //   .then(() => {
+  //     setRecords(records.filter((record) => {
+  //       return record.id !== id;
+  //     }));
+  //     console.log("record deleted successfully!");
+  //   })
+  //   .catch(error => console.log(error));
+  // };
 
   
   return (
