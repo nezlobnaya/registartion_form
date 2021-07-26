@@ -84,7 +84,6 @@ function RecordsList(props) {
             return b.date > a.date ? 1: -1
         }).map((record) => (
         <div className="list-group list-group-horizontal" key={record._id}>
-            <button onClick={() => (handleDelete(record._id))}>Delete</button>
             <li className="list-group-item">{record.first_name}</li>
             <li className="list-group-item">{record.last_name}</li>
             <li className="list-group-item">{record.address1}</li>
@@ -93,7 +92,8 @@ function RecordsList(props) {
             <li className="list-group-item">{record.state}</li>
             <li className="list-group-item">{record.zip}</li>
             <li className="list-group-item">{record.country}</li>
-            <li className="list-group-item">{moment(record.date).toString()}</li>
+            <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
+            <button onClick={() => (handleDelete(record._id))}>Delete</button>
             <hr/>
         </div>
       ))}
