@@ -39,6 +39,15 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
+async function handleUpdate   (id, record) {
+  try {
+    const response = await axios.put(`/api/record/${id}`, record);
+    getRecords();
+  } catch(error) {
+    console.log('error', error);
+  }
+}
+
  async function handleDelete(id){
     try {
       const response = await axios.delete(`/api/records/${id}`);
@@ -94,6 +103,7 @@ function RecordsList(props) {
             <li className="list-group-item">{record.country}</li>
             <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
             <button onClick={() => (handleDelete(record._id))}>Delete</button>
+            <button onClick={() => (handleUpdate(record._id, record))}>Update</button>
             <hr/>
         </div>
       ))}
