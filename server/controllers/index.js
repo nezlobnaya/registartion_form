@@ -29,6 +29,26 @@ export const createRecord = async (req, res) => {
     }
 }
 
+export const updateRecord = async (req, res) => {
+    const record = req.body;
+    const recordId = req.params.id;
+    const updatedRecord = await RecordData.findByIdAndUpdate(recordId, record);
+    res.status(200).json(updatedRecord);
+}   
+
+
+// export const updateRecord = async (req, res) => {
+//     const { id } = req.params;
+//     const { title, message, creator, selectedFile, tags } = req.body;
+    
+//     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+//     const updatedRecord = { creator, title, message, tags, selectedFile, _id: id };
+
+//     await PostMessage.findByIdAndUpdate(id, updatedRecord, { new: true });
+
+//     res.json(updatedRecord);
+// }
 
 export const deleteRecord = async (req, res) => {
     const { id } = req.params;
