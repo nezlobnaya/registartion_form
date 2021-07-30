@@ -39,14 +39,7 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
-async function handleUpdate   (id, record) {
-  try {
-    const response = await axios.put(`/api/record/${id}`, record);
-    getRecords();
-  } catch(error) {
-    console.log('error', error);
-  }
-}
+
 
  async function handleDelete(id){
     try {
@@ -62,17 +55,6 @@ async function handleUpdate   (id, record) {
       console.log('error', error);
     }
  }
-
-  // const handleDelete = (id) => {
-  //   axios.delete(`/api/records/${id}`)
-  //   .then(() => {
-  //     setRecords(records.filter((record) => {
-  //       return record.id !== id;
-  //     }));
-  //     console.log("record deleted successfully!");
-  //   })
-  //   .catch(error => console.log(error));
-  // };
 
   
   return (
@@ -103,7 +85,7 @@ async function handleUpdate   (id, record) {
             <li className="list-group-item">{record.country}</li>
             <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
             <button onClick={() => (handleDelete(record._id))}>Delete</button>
-            <button onClick={() => (handleUpdate(record._id, record))}>Update</button>
+            <Link to={`/records/${record._id}/edit`}className="btn btn-primary">Edit</Link> 
             <hr/>
         </div>
       ))}
