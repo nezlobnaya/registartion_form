@@ -45,16 +45,40 @@ function RecordsList(props) {
     try {
       const response = await axios.delete(`/api/records/${id}`);
       console.log(response.data.message);
-      // if (response.data.message === "Record deleted successfully.") { 
-      //   setRecords(records.filter((record) => {
-      //     return record.id !== id;
-      //   }));
-      // }
       getRecords();
     } catch(error) {
       console.log('error', error);
     }
  }
+
+ const renderHeader = () => {
+  let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zp', 'country']
+
+  return headerElement.map((key, index) => {
+      return <th key={index}>{key.toUpperCase()}</th>
+  })
+}
+
+const renderBody = () => {
+  return records && records.map(({id, first_name, last_name, address1, address2, city, state, zip, country, date }) => {
+      return (
+          <tr key={id}>
+              <td>{first_name}</td>
+              <td>{last_name}</td>
+              <td>{address1}</td>
+              <td>{address2}</td>
+              <td>{city}</td>
+              <td>{state}</td>
+              <td>{zip}</td>
+              <td>{country}</td>
+              <td>{date}</td>
+              <td className='operation'>
+                  {/* <button onClick={() => removeData(id)}>Delete</button> */}
+              </td>
+          </tr>
+      )
+  })
+}
 
   
   return (
@@ -84,8 +108,8 @@ function RecordsList(props) {
             <li className="list-group-item">{record.zip}</li>
             <li className="list-group-item">{record.country}</li>
             <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
-            <button onClick={() => (handleDelete(record._id))}>Delete</button>
-            <Link to={`/records/${record._id}/edit`}className="btn btn-primary">Edit</Link> 
+            <button onClick={() => (handleDelete(record._id))} className="btn btn-secondary" style={{"color": "red", "backgroundColor": "#dbdad5"}}>Delete</button>
+            <Link to={`/records/${record._id}/edit`} className="btn btn-primary">Edit</Link> 
             <hr/>
         </div>
       ))}
