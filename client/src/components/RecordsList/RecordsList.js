@@ -108,8 +108,8 @@ const renderBody = () => {
             <li className="list-group-item">{record.zip}</li>
             <li className="list-group-item">{record.country}</li>
             <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
+            <Link to={`/records/${record._id}/edit`}className="btn btn-primary">Edit</Link> 
             <button onClick={() => (handleDelete(record._id))} className="btn btn-secondary" style={{"color": "red", "backgroundColor": "#dbdad5"}}>Delete</button>
-            <Link to={`/records/${record._id}/edit`} className="btn btn-primary">Edit</Link> 
             <hr/>
         </div>
       ))}
