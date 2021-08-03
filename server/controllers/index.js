@@ -48,16 +48,6 @@ export const updateRecord = async (req, res) => {
 }   
 
 
-// export const updateRecord = async (req, res) => {
-//     const { id } = req.params;
-//     const record = req.body;
-    
-//     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-
-//     const updatedRecord = await RecordData.findByIdAndUpdate(id, updatedRecord, { new: true });;
-//     res.status(200).json(updatedRecord);
-// }
-
 export const deleteRecord = async (req, res) => {
     const { id } = req.params;
 
