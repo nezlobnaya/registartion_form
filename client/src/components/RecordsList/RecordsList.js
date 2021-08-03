@@ -52,7 +52,7 @@ function RecordsList(props) {
  }
 
  const renderHeader = () => {
-  let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zp', 'country']
+  let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zip', 'country', 'date',]
 
   return headerElement.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>
@@ -60,9 +60,11 @@ function RecordsList(props) {
 }
 
 const renderBody = () => {
-  return records && records.map(({id, first_name, last_name, address1, address2, city, state, zip, country, date }) => {
+  return filteredRecords && filteredRecords.sort((a,b)=> {
+    return b.date > a.date ? 1: -1
+    }).map(({_id, first_name, last_name, address1, address2, city, state, zip, country, date }) => {
       return (
-          <tr key={id}>
+          <tr key={_id}>
               <td>{first_name}</td>
               <td>{last_name}</td>
               <td>{address1}</td>
@@ -71,9 +73,10 @@ const renderBody = () => {
               <td>{state}</td>
               <td>{zip}</td>
               <td>{country}</td>
-              <td>{date}</td>
+              <td>{moment(date).toString()}</td>
               <td className='operation'>
-                  {/* <button onClick={() => removeData(id)}>Delete</button> */}
+                <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
+                  <button onClick={() => handleDelete(_id)}>Delete</button>
               </td>
           </tr>
       )
@@ -94,25 +97,15 @@ const renderBody = () => {
         type="text"
         placeholder="Search records..."
       />
-      {filteredRecords
-        .sort((a,b)=> {
-            return b.date > a.date ? 1: -1
-        }).map((record) => (
-        <div className="list-group list-group-horizontal" key={record._id}>
-            <li className="list-group-item">{record.first_name}</li>
-            <li className="list-group-item">{record.last_name}</li>
-            <li className="list-group-item">{record.address1}</li>
-            <li className="list-group-item">{record.address2}</li>
-            <li className="list-group-item">{record.city}</li>
-            <li className="list-group-item">{record.state}</li>
-            <li className="list-group-item">{record.zip}</li>
-            <li className="list-group-item">{record.country}</li>
-            <li className="list-group-item">{moment(record.date).toString()}</li><hr/>
-            <Link to={`/records/${record._id}/edit`}className="btn btn-primary">Edit</Link> 
-            <button onClick={() => (handleDelete(record._id))} className="btn btn-secondary" style={{"color": "red", "backgroundColor": "#dbdad5"}}>Delete</button>
-            <hr/>
-        </div>
-      ))}
+      <table id='records'>
+        <thead>
+          <tr>{renderHeader()}</tr>
+        </thead>
+        <tbody>
+          {renderBody()}
+        </tbody>
+      </table>
+    
       <div>{filteredRecords.length === 0 && query !== "" && "No matches found..."}</div> 
      </div> 
     </div>
