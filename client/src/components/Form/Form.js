@@ -6,6 +6,7 @@ function RecordAdd(props) {
   const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: []}
   const [record, setRecord] = useState(state) 
   const [checked, setChecked] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   function toggle() {
     setChecked(!checked)
@@ -24,7 +25,7 @@ function RecordAdd(props) {
          
         props.history.push('/success/'); 
       } catch(error) {
-        console.log('error', error.response);
+        setErrorMessage(error.response.data.message);
     
       }
     }
@@ -40,6 +41,7 @@ function RecordAdd(props) {
     <div>
       <h1>Create a Record</h1>
       <hr/>
+      {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group" >
           <label>First Name</label>
