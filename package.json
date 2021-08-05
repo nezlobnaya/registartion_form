@@ -16,10 +16,7 @@
   "author": "Vlad Burlutskiy",
   "license": "ISC",
   "devDependencies": {
-    "@cypress/react": "^5.9.3",
-    "@cypress/webpack-dev-server": "^1.0.1",
     "concurrently": "^6.0.2",
-    "cypress": "^8.2.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
