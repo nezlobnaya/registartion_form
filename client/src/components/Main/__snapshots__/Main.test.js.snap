@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main snapshot for App component with custom className and style 1`] = `
+<div>
+  <div
+    class="jumbotron"
+  >
+    <h1>
+      Per Aspera Ad Astra!!
+    </h1>
+  </div>
+</div>
+`;

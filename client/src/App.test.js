@@ -33,6 +33,14 @@ describe('<App />', () => {
     const { container } = render(<App className="custom" style={{ background: 'red' }} />);
     expect(container).toMatchSnapshot();
   } );
+
+  test('snapshot for App component with custom className, style and children', () => {
+    const { container } = render(<App className="custom" style={{ background: 'red' }}>
+      <div>children</div>
+    </App>);
+    expect(container).toMatchSnapshot();
+  } );
+
 });
 
 
