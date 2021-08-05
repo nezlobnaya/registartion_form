@@ -8,15 +8,13 @@ import RecordEdit from '../RecordEdit/RecordEdit';
 
 function Main() {
     return(
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/records/new" component={RecordAdd} />
-          <Route exact path="/records/:id/edit" component={RecordEdit} />
-          <Route exact path="/records" component={RecordsList} />
-          <Route path="/success" component={RecordSuccess} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/records/new" component={RecordAdd} />
+        <Route exact path="/records/:id/edit" component={RecordEdit} />
+        <Route exact path="/records" component={RecordsList} />
+        <Route path="/success" component={RecordSuccess} />
+      </Switch>
     );
   }
 
