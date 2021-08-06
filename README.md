@@ -5,10 +5,11 @@ Basic MERN app with CRUD functionality deployed to Heroku:
 [Demo](https://reggg-form.herokuapp.com/)
 
 # <b>Built with</b>
-- [JavaScript](https://www.javascript.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
 - [React](https://reactjs.org)
 - [Node.js](https://nodejs.org)
-- [Express](https://expressjs.com/)
+
 
 <b>Packages frontend</b>:
 - [axios](https://www.npmjs.com/package/axios)
