@@ -60,7 +60,7 @@ function RecordsList(props) {
 }
 
 const renderBody = () => {
-  return filteredRecords && filteredRecords.sort((a,b)=> {
+  return filteredRecords?.sort((a,b)=> {
     return b.date > a.date ? 1: -1
     }).map(({_id, first_name, last_name, address1, address2, city, state, zip, country, date }) => {
       return (
