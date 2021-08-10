@@ -8,6 +8,7 @@ import debounce from "lodash.debounce";
 function RecordsList(props) {
   const [records, setRecords] = useState([]);
   const [query, setQuery] = useState("");
+  const [message, setMessage] = useState("");
 
 
   async function getRecords() {
@@ -45,6 +46,7 @@ function RecordsList(props) {
     try {
       const response = await axios.delete(`/api/records/${id}`);
       console.log(response.data.message);
+      setMessage(response.data.message);
       getRecords();
     } catch(error) {
       console.log('error', error);
@@ -97,6 +99,11 @@ const renderBody = () => {
         type="text"
         placeholder="Search records..."
       />
+      {message? <div className="alert alert-primary" role="alert">{message}
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => setMessage("")}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> : null}
       <table id='records'>
         <thead>
           <tr>{renderHeader()}</tr>

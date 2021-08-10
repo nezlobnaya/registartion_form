@@ -36,8 +36,8 @@ function RecordEdit(props) {
     async function updateRecord() {
       try {
          await axios.patch(`/api/records/${props.match.params.id}`, record); 
-         
-        props.history.push('/success/'); 
+         alert('Record updated successfully!');
+        props.history.push('/records/'); 
       } catch(error) {
         console.log('error', error.response);
     
