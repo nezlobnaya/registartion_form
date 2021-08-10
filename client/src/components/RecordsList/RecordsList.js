@@ -3,13 +3,19 @@ import  axios  from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import debounce from "lodash.debounce";
+import ModalDelete from '../Modals/ModalDelete';
 
 
 function RecordsList(props) {
   const [records, setRecords] = useState([]);
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState("");
-
+  const [showModal, setShowModal] = useState(
+    {
+      show: false,
+      id: null,
+    }
+  )
 
   async function getRecords() {
     try {
@@ -40,18 +46,46 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
+  const confirm = (id) => {
+    setShowModal({
+      show: true,
+      id,
+    });
+    console.log('show modal', id);
+  };
 
-
- async function handleDelete(id){
+ async function handleDelete(){
     try {
-      const response = await axios.delete(`/api/records/${id}`);
+      const response = await axios.delete(`/api/records/${showModal.id}`);
+      console.log("Darn IT!")
       console.log(response.data.message);
       setMessage(response.data.message);
+      setShowModal({
+        show: false,
+        id: null,
+      });
       getRecords();
     } catch(error) {
       console.log('error', error);
     }
  }
+
+   const handleDeleteFalse = () => {
+    setShowModal({
+      show: false,
+      id: null,
+    });
+  };
+  
+//     try {
+//       const response = await axios.delete(`/api/records/${id}`);
+//       console.log(response.data.message);
+//       setMessage(response.data.message);
+//       getRecords();
+//     } catch(error) {
+//       console.log('error', error);
+//     }
+//  }
 
  const renderHeader = () => {
   let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zip', 'country', 'date',]
@@ -78,7 +112,7 @@ const renderBody = () => {
               <td>{moment(date).toString()}</td>
               <td className='operation'>
                 <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
-                  <button onClick={() => handleDelete(_id)}>Delete</button>
+                  <button onClick={() => confirm(_id)}>Delete</button>
               </td>
           </tr>
       )
@@ -104,6 +138,12 @@ const renderBody = () => {
           <span aria-hidden="true">&times;</span>
         </button>
       </div> : null}
+      {showModal.show && (
+                    <ModalDelete
+                      handleDelete={handleDelete}
+                      handleDeleteFalse={handleDeleteFalse}
+                    />
+                  )}
       <table id='records'>
         <thead>
           <tr>{renderHeader()}</tr>
@@ -112,7 +152,6 @@ const renderBody = () => {
           {renderBody()}
         </tbody>
       </table>
-    
       <div>{filteredRecords.length === 0 && query !== "" && "No matches found..."}</div> 
      </div> 
     </div>
