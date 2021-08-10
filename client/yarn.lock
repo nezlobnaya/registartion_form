@@ -1239,10 +1239,10 @@
     "tunnel-agent" "^0.6.0"
     "uuid" "^3.3.2"
 
-"@cypress/webpack-dev-server@*", "@cypress/webpack-dev-server@^1.0.1":
-  "integrity" "sha512-eL7ydHlc954wBaw8F55xqzz4ftqYgEWNOdYZPT+ZcxuFErxfw5rPYT3KCPzFIV9lSj5D+C89Cgntn+A0Ns/ZIg=="
-  "resolved" "https://registry.npmjs.org/@cypress/webpack-dev-server/-/webpack-dev-server-1.0.1.tgz"
-  "version" "1.0.1"
+"@cypress/webpack-dev-server@*", "@cypress/webpack-dev-server@^1.4.0":
+  "integrity" "sha512-eul5wwurOCJVtNdVhhdHnl9nEqupN8Wbu+Yeczhti+Qy/+GKfaGCwVRwCVKIjTRXUGgdcgKzwxlOruDKzI7jXQ=="
+  "resolved" "https://registry.npmjs.org/@cypress/webpack-dev-server/-/webpack-dev-server-1.4.0.tgz"
+  "version" "1.4.0"
   dependencies:
     "debug" "4.3.2"
     "semver" "^7.3.4"
@@ -6254,7 +6254,7 @@
     "relateurl" "^0.2.7"
     "terser" "^4.6.3"
 
-"html-webpack-plugin@> 3":
+"html-webpack-plugin@>=4":
   "integrity" "sha512-HvB33boVNCz2lTyBsSiMffsJ+m0YLIQ+pskblXgN9fnjS1BgEcuAfdInfXfGrkdXV406k9FiDi86eVCDBgJOyQ=="
   "resolved" "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-5.3.2.tgz"
   "version" "5.3.2"
@@ -12294,7 +12294,7 @@
     "range-parser" "^1.2.1"
     "webpack-log" "^2.0.0"
 
-"webpack-dev-server@3.11.1", "webpack-dev-server@3.x":
+"webpack-dev-server@>=3.0.0", "webpack-dev-server@3.11.1", "webpack-dev-server@3.x":
   "integrity" "sha512-u4R3mRzZkbxQVa+MBWi2uVpB5W59H3ekZAJsQlKUTdl7Elcah2EhygTPLmeFXybQkf9i2+L0kn7ik9SnXa6ihQ=="
   "resolved" "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-3.11.1.tgz"
   "version" "3.11.1"
@@ -12372,7 +12372,7 @@
   "resolved" "https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.0.tgz"
   "version" "3.2.0"
 
-"webpack@^4.0.0 || ^5.0.0", "webpack@^4.27.0 || ^5.0.0", "webpack@^4.36.0 || ^5.0.0", "webpack@^4.4.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.20.0", "webpack@> 4", "webpack@>=2", "webpack@>=4":
+"webpack@^4.0.0 || ^5.0.0", "webpack@^4.27.0 || ^5.0.0", "webpack@^4.36.0 || ^5.0.0", "webpack@^4.4.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.20.0", "webpack@>=2", "webpack@>=4":
   "integrity" "sha512-CGe+nfbHrYzbk7SKoYITCgN3LRAG0yVddjNUecz9uugo1QtYdiyrVD8nP1PhkNqPfdxC2hknmmKpP355Epyn6A=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.48.0.tgz"
   "version" "5.48.0"
