@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import debounce from "lodash.debounce";
 import ModalDelete from '../Modals/ModalDelete';
+import { MDBIcon } from 'mdbreact'
 
 
 function RecordsList(props) {
@@ -101,7 +102,7 @@ const renderBody = () => {
               <td>{moment(date).toString()}</td>
               <td className='operation'>
                 <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
-                  <button onClick={() => confirm(_id)} className='btn btn-danger'>Delete</button>
+                  <MDBIcon far icon="trash-alt" onClick={() => confirm(_id)} className='btn btn-danger'></MDBIcon>
               </td>
           </tr>
       )
@@ -148,3 +149,4 @@ const renderBody = () => {
 }
 
 export default RecordsList;
+
