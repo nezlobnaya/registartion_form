@@ -101,7 +101,7 @@ const renderBody = () => {
               <td>{moment(date).toString()}</td>
               <td className='operation'>
                 <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
-                  <button onClick={() => confirm(_id)}>Delete</button>
+                  <button onClick={() => confirm(_id)} className='btn btn-danger'>Delete</button>
               </td>
           </tr>
       )
