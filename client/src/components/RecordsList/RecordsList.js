@@ -51,7 +51,6 @@ function RecordsList(props) {
       show: true,
       id,
     });
-    console.log('show modal', id);
   };
 
  async function handleDelete(){
@@ -77,16 +76,6 @@ function RecordsList(props) {
     });
   };
   
-//     try {
-//       const response = await axios.delete(`/api/records/${id}`);
-//       console.log(response.data.message);
-//       setMessage(response.data.message);
-//       getRecords();
-//     } catch(error) {
-//       console.log('error', error);
-//     }
-//  }
-
  const renderHeader = () => {
   let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zip', 'country', 'date',]
 

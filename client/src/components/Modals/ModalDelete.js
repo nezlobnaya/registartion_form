@@ -1,5 +1,4 @@
 function ModalDelete({  handleDeleteFalse, handleDelete }) {
-    console.log("Damn")
     return (
       <div className="alert alert-primary">
         <div>
