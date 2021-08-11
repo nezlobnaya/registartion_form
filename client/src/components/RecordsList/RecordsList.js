@@ -3,20 +3,17 @@ import  axios  from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import debounce from "lodash.debounce";
-import ModalDelete from '../Modals/ModalDelete';
 import { MDBIcon } from 'mdbreact'
+import DeleteConfirmation from '../Modals/Modal1/DeleteConfirmation';
 
 
 function RecordsList(props) {
   const [records, setRecords] = useState([]);
   const [query, setQuery] = useState("");
-  const [message, setMessage] = useState("");
-  const [showModal, setShowModal] = useState(
-    {
-      show: false,
-      id: null,
-    }
-  )
+  const [deleteMessage, setDeleteMessage] = useState(null);
+  const [id, setId] = useState(null);
+  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+
 
   async function getRecords() {
     try {
@@ -47,35 +44,31 @@ function RecordsList(props) {
     return debounce(changeHandler, 300);
   }, []);
 
-  const confirm = (id) => {
-    setShowModal({
-      show: true,
-      id,
-    });
+  const showDeleteModal = (id) => {
+    setId(id);
+    setDisplayConfirmationModal(true);
+    setDeleteMessage("Are you sure you want to delete this record?");
+  };
+
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+    setDeleteMessage(null);
+    setId(null);
   };
 
  async function handleDelete(){
     try {
-      const response = await axios.delete(`/api/records/${showModal.id}`);
-      console.log("Darn IT!")
-      console.log(response.data.message);
-      setMessage(response.data.message);
-      setShowModal({
-        show: false,
-        id: null,
-      });
-      getRecords();
+      const response = await axios.delete(`/api/records/${id}`);
+      if (response.data.message === "Record deleted successfully.") {
+        setDeleteMessage("Record deleted successfully!");
+        getRecords();
+      }
     } catch(error) {
       console.log('error', error);
     }
- }
+  }
 
-   const handleDeleteFalse = () => {
-    setShowModal({
-      show: false,
-      id: null,
-    });
-  };
+
   
  const renderHeader = () => {
   let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zip', 'country', 'date',]
@@ -102,7 +95,7 @@ const renderBody = () => {
               <td>{moment(date).toString()}</td>
               <td className='operation'>
                 <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
-                  <MDBIcon far icon="trash-alt" onClick={() => confirm(_id)} className='btn btn-danger'></MDBIcon>
+                  <MDBIcon far icon="trash-alt" onClick={() => showDeleteModal(_id)} className='btn btn-danger'></MDBIcon>
               </td>
           </tr>
       )
@@ -123,16 +116,8 @@ const renderBody = () => {
         type="text"
         placeholder="Search records..."
       />
-      {message? <div className="alert alert-primary" role="alert">{message}
-        <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => setMessage("")}>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> : null}
-      {showModal.show && (
-                    <ModalDelete
-                      handleDelete={handleDelete}
-                      handleDeleteFalse={handleDeleteFalse}
-                    />
+      {displayConfirmationModal && (
+        <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={handleDelete} hideModal={hideConfirmationModal} message={deleteMessage} id={id} />
                   )}
       <table id='records'>
         <thead>
