@@ -30,3 +30,5 @@ Basic MERN app with CRUD functionality deployed to Heroku:
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Cypress](https://cypress.io/)
+
+![Visualization of the codebase](./diagram.svg)
