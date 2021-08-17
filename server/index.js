@@ -4,16 +4,33 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import recordsRoutes from "./routes/records/records.js";
-import  path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import  path, { dirname } from "path";
+import { fileURLToPath } from "url";
+import jwt from "express-jwt";
+import jwks from "jwks-rsa";
 
 dotenv.config();
 
 const server = express();
 
+const jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://dev-3wmnvfhu.us.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'https://registration-api.com',
+  issuer: 'https://dev-3wmnvfhu.us.auth0.com/',
+  algorithms: ['RS256']
+})
+
 server.use(bodyParser.json({  exceeded: true }));
 server.use(bodyParser.urlencoded({  extended: true }));
 server.use(cors());
+server.use(jwtCheck);
+
+
 
 
 
