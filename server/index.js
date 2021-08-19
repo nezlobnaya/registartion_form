@@ -36,6 +36,15 @@ if (process.env.NODE_ENV === 'production') {
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
+process.once('SIGUSR2', function () {
+    process.kill(process.pid, 'SIGUSR2');
+  });
+  
+process.on('SIGINT', function () {
+    // this is only called on ctrl+c, not restart
+    process.kill(process.pid, 'SIGINT');
+  });
+
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => server.listen(PORT, () => console.log(`Mongo Connection successful. Server running on port: ${PORT}`)))
     .catch((error) => console.log(`${error} did not connect`));
