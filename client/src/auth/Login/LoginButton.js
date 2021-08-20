@@ -6,9 +6,7 @@ const LoginButton = () => {
   return (
     <button
       className="btn btn-primary btn-block"
-      onClick={() => loginWithRedirect(
-        {redirectUri: "https://reggg-form.herokuapp.com/records"}
-      )}
+      onClick={() => loginWithRedirect()}
     >
       Log In
     </button>
