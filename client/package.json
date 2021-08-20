@@ -2,8 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:8080",
   "dependencies": {
+    "@auth0/auth0-react": "^1.6.0",
     "@cypress/react": "^5.9.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

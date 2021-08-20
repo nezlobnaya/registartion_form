@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import AuthNav from "./auth-nav";
 
 
 function Navigation() {
@@ -10,6 +11,7 @@ function Navigation() {
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/records/">Admin report</NavLink></li>
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/records/new">New Record</NavLink></li>
           </ul>
+          <AuthNav />
         </div>
       </nav>
     );
