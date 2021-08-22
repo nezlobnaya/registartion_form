@@ -93,8 +93,8 @@ const renderBody = () => {
               <td>{zip}</td>
               <td>{country}</td>
               <td>{moment(date).toString()}</td>
-              <td className='operation'>
-                <Link to={`/records/${_id}/edit`}className="btn btn-primary">Edit</Link> 
+              <td className='operation' style={{backgroundColor: "#e3f2fd"}} >
+                <Link to={`/records/${_id}/edit`}  className="btn btn-primary">Edit</Link> 
                   <MDBIcon far icon="trash-alt" onClick={() => showDeleteModal(_id)} className='btn btn-danger'></MDBIcon>
               </td>
           </tr>

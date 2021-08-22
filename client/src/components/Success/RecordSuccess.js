@@ -5,14 +5,14 @@ export default function RecordSuccess() {
       <div className="row justify-content-center">
         <div className="col-10 col-sm-7 col-md-5 col-lg-4">
           <p>
-          All set! Record created successfully. 
-          Click the link to view the records!  
+          All set!<br />
+          Record created successfully.<br />
           </p>
           <p>
             Thank you!
           </p>
         </div>
-        <Link to="/records/" className="btn btn-primary float-right">View Records</Link> 
+        <Link to="/records/" className="btn btn-primary btn-block">View Records</Link> 
       </div>
     );
   }
