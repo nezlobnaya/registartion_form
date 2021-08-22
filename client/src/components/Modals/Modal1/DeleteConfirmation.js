@@ -10,10 +10,10 @@ const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, message })
         {message === "Record deleted successfully!" ? 
           null:
         <Modal.Footer>
-          <Button variant="default" onClick={hideModal}>
+          <Button variant="danger" onClick={hideModal}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={() => confirmModal(id) }>
+          <Button variant="outline-danger" onClick={() => confirmModal(id) }>
             Delete
           </Button>
         </Modal.Footer>
