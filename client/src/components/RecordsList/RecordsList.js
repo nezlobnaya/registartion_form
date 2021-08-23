@@ -74,7 +74,7 @@ function RecordsList(props) {
   let headerElement = ['first name', 'last name', 'address1', 'address2', 'city', 'state', 'zip', 'country', 'date',]
 
   return headerElement.map((key, index) => {
-      return <th key={index}>{key.toUpperCase()}</th>
+      return <th key={index} className="nav-item font-weight-normal" style={{backgroundColor: "#e3f2fd", color:"black"}}>{key.toUpperCase()}</th>
   })
 }
 
@@ -107,7 +107,7 @@ const renderBody = () => {
     <div>
       <h2>
         Records
-        <Link to="/records/new" className="btn btn-primary float-right">New Record</Link> 
+        <Link to="/records/new" className="btn btn-outline-primary float-right">New Record</Link> 
       </h2>
       <hr/>
        <div>

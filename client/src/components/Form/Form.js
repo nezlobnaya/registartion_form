@@ -78,9 +78,9 @@ function RecordAdd(props) {
           <label>Country</label>
           <input name="country" type="text" value="US" className="form-control" readOnly/>
         </div>
-        <div className="btn-group">
+        <div className="btn-toolbar">
           <input type="submit" value="Submit" className="btn btn-primary" required/>
-          <button type="button" onClick={handleCancel} className="btn btn-secondary">Cancel</button>
+          <button type="button" onClick={handleCancel} className="btn btn-outline-danger">Cancel</button>
         </div>
       </form>
     </div>
