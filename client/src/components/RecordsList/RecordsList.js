@@ -5,7 +5,9 @@ import moment from 'moment';
 import debounce from "lodash.debounce";
 import { MDBIcon } from 'mdbreact'
 import DeleteConfirmation from '../Modals/Modal1/DeleteConfirmation';
+import Pagination from '../Pagination/Pagination';
 
+let PageSize = 10
 
 function RecordsList(props) {
   const [records, setRecords] = useState([]);
@@ -13,8 +15,9 @@ function RecordsList(props) {
   const [deleteMessage, setDeleteMessage] = useState(null);
   const [id, setId] = useState(null);
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
-
+  
   async function getRecords() {
     try {
       const response = await axios.get("/api/records");
@@ -34,6 +37,17 @@ function RecordsList(props) {
     filteredRecords = records.filter((record) => {
       return record.last_name.toLowerCase().includes(query.toLowerCase()) || record.first_name.toLowerCase().includes(query.toLowerCase()) || record.city.toLowerCase().includes(query.toLowerCase()) || record.state.toLowerCase().includes(query.toLowerCase()) ;
     });
+  }
+  console.log("length",filteredRecords.length);
+  const indexOfLastRecord = currentPage * PageSize;
+  const indexOfFirstRecord = indexOfLastRecord - PageSize;
+  const currentRecords = filteredRecords.slice(indexOfFirstRecord, indexOfLastRecord);
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(filteredRecords.length / PageSize); i++) {
+    pageNumbers.push(i);
+  }
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   }
 
   const changeHandler = (e) => {
@@ -79,7 +93,7 @@ function RecordsList(props) {
 }
 
 const renderBody = () => {
-  return filteredRecords?.sort((a,b)=> {
+  return currentRecords?.sort((a,b)=> {
     return b.date > a.date ? 1: -1
     }).map(({_id, first_name, last_name, address1, address2, city, state, zip, country, date }) => {
       return (
@@ -129,7 +143,15 @@ const renderBody = () => {
       </table>
       <div>{filteredRecords.length === 0 && query !== "" && "No matches found..."}</div> 
      </div> 
+     <Pagination
+      currentPage={currentPage}
+      totalCount={pageNumbers}
+      pageSize={PageSize}
+      onPageChange={handlePageChange}
+
+    />
     </div>
+    
   )
 }
 
