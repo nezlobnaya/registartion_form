@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import debounce from "lodash.debounce";
 import { MDBIcon } from 'mdbreact'
-import DeleteConfirmation from '../Modals/Modal1/DeleteConfirmation';
+import DeleteConfirmation from '../Modals/ModalDelete/DeleteConfirmation';
 
 
 function RecordsList(props) {

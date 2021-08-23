@@ -1,12 +1,27 @@
 import  { useState } from "react"; 
 import { post } from 'axios'; 
+import SuccessConfirmation from "../Modals/ModalConfirm/SuccessConfirmation";
 
 
 function RecordAdd(props) {
   const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: []}
   const [record, setRecord] = useState(state) 
   const [checked, setChecked] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
+  const [displaySuccessModal, setDisplaySuccessModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(null);
+
+  const showSuccessModal = () => {
+    setDisplaySuccessModal(true);
+    setSuccessMessage("Record created successfully!");
+  };
+
+  const hideConfirmationModal = () => {
+    setDisplaySuccessModal(false);
+    setSuccessMessage(null);
+    props.history.push('/records/'); 
+  };
+  
 
   function toggle() {
     setChecked(!checked)
@@ -16,14 +31,14 @@ function RecordAdd(props) {
   function handleChange(event) { 
     setRecord({...record, [event.target.name]: event.target.value})
   }  
+
   function handleSubmit(event) { 
     event.preventDefault();  
 
     async function postRecord() {
       try {
          await post('/api/records', record); 
-         
-        props.history.push('/success/'); 
+         showSuccessModal();
       } catch(error) {
         setErrorMessage(error.response.data.message);
     
@@ -36,9 +51,12 @@ function RecordAdd(props) {
     props.history.push("/records");
   }
 
-  
+
   return ( 
     <div>
+        {displaySuccessModal && (
+        <SuccessConfirmation showModal={displaySuccessModal} hideModal={hideConfirmationModal} message={successMessage} />
+                  )}
       <h1>Create a Record</h1>
       <hr/>
       {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
