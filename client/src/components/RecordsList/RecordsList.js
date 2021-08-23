@@ -47,7 +47,7 @@ function RecordsList(props) {
   const showDeleteModal = (id) => {
     setId(id);
     setDisplayConfirmationModal(true);
-    setDeleteMessage("Are you sure you want to delete this record?");
+    setDeleteMessage("Are you sure you want to delete this record?This action cannot be undone");
   };
 
   const hideConfirmationModal = () => {
