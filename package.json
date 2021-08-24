@@ -7,7 +7,7 @@
   "scripts": {
     "test": "cypress open",
     "start": "node server/index.js",
-    "server": "nodemon  --verbose server/index.js",
+    "server": "nodemon --delay 500ms --verbose server/index.js",
     "client": "cd client && npm run start",
     "dev": "concurrently --kill-others \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
@@ -16,13 +16,15 @@
   "author": "Vlad Burlutskiy",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^6.0.2",
-    "nodemon": "^2.0.7"
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
   },
   "nodemonConfig": {
-    "ignore": ["node_modules/**/*.js", "*test.js"]
+    "ignore": [
+      "node_modules/**/*.js",
+      "*test.js"
+    ]
   },
-
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

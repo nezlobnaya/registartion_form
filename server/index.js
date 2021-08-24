@@ -53,7 +53,10 @@ if (process.env.NODE_ENV === 'production') {
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
-console.log(process.pid, "is running")
+process.once('SIGUSR2', function () {
+    process.kill(process.pid, 'SIGUSR2');
+  });
+
   
 process.on('SIGINT', function () {
     // this is only called on ctrl+c, not restart
