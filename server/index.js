@@ -6,31 +6,15 @@ import dotenv from "dotenv";
 import recordsRoutes from "./routes/records/records.js";
 import  path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import jwt from "express-jwt";
-import jwks from "jwks-rsa";
 
 dotenv.config();
 
 const server = express();
 
-const jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://dev-3wmnvfhu.us.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'https://registration-api.com',
-  issuer: 'https://dev-3wmnvfhu.us.auth0.com/',
-  algorithms: ['RS256']
-})
 
 server.use(bodyParser.json({  exceeded: true }));
 server.use(bodyParser.urlencoded({  extended: true }));
 server.use(cors());
-// server.use(jwtCheck);
-
-
 
 
 
@@ -52,16 +36,6 @@ if (process.env.NODE_ENV === 'production') {
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
-
-process.once('SIGUSR2', function () {
-    process.kill(process.pid, 'SIGUSR2');
-  });
-
-  
-process.on('SIGINT', function () {
-    // this is only called on ctrl+c, not restart
-    process.kill(process.pid, 'SIGINT');
-  });
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => server.listen(PORT, () => console.log(`Mongo Connection successful. Server running on port: ${PORT}`)))
