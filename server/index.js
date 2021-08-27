@@ -37,11 +37,9 @@ if (process.env.NODE_ENV === 'production') {
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(CONNECTION_URL)
     .then(() => server.listen(PORT, () => console.log(`Mongo Connection successful. Server running on port: ${PORT}`)))
     .catch((error) => console.log(`${error} did not connect`));
-// 
-mongoose.set('useFindAndModify', false);
 
 
 
