@@ -1,21 +1,24 @@
-# Add 'repo' label to any root file changes
-repo:
-- '*'
+"area:frontend":
+  - any: ["client/**"]
+  - all: ["!client/cypress"]
 
-# Add '@domain/core' label to any change within the 'core' package
-domain/core:
-- package/core/*
-- package/core/**/*
+"area:backend":
+  - any: ["server/**"]
+  - all: ["!server/cypress"]
 
-# Add 'test' label to any change to *.test.js files within the source dir
+
+"area:api":
+  - "server/routes/**"
+  - "server/controllers/**"
+  - "server/models/**"
+
 test:
 - src/**/*.test.js
 
 # Add 'source' label to any change to src files within the source dir EXCEPT for the docs sub-folder
 source:
-- any: ['src/**/*', '!src/docs/*']
+- any: ['src/**/*']
 
-# Add 'frontend` label to any change to *.js files as long as the `main.js` hasn't changed
 frontend:
 - any: ['src/**/*.js']
-  all: ['!src/main.js']
+  all: ['!src/logo.svg']
