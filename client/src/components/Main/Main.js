@@ -4,7 +4,6 @@ import RecordsList from '../RecordsList/RecordsList';
 import RecordAdd from '../Form/Form';
 import RecordEdit from '../RecordEdit/RecordEdit';
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import Profile from '../Profile/Profile';
 
 
 function Main() {
@@ -14,7 +13,6 @@ function Main() {
         <Route path="/records/new" component={RecordAdd} />
         <ProtectedRoute exact path="/records/:id/edit" component={RecordEdit} />
         <ProtectedRoute exact path="/records" component={RecordsList} />
-        <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     );
   }
