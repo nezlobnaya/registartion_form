@@ -10,6 +10,7 @@ function Navigation() {
             <li className="nav-item font-weight-normal"><NavLink exact className="nav-link" activeClassName="active" to="/">Home</NavLink></li>
             <li className="nav-item font-weight-normal"><NavLink exact className="nav-link" activeClassName="active" to="/records/">Admin report</NavLink></li>
             <li className="nav-item font-weight-normal"><NavLink exact className="nav-link" activeClassName="active" to="/records/new">New Record</NavLink></li>
+            <li className="nav-item font-weight-normal"><NavLink exact className="nav-link" activeClassName="active" to="/profile">Profile</NavLink></li>
           </ul>
           <AuthNav />
         </div>
