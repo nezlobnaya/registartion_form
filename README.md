@@ -15,6 +15,7 @@ MERN app with CRUD functionality deployed to Heroku:
 - [axios](https://www.npmjs.com/package/axios)
 - [bootstrap](https://www.npmjs.com/package/bootstrap)
 - [moment](https://www.npmjs.com/package/moment)
+- [@auth0](https://github.com/auth0/auth0-react)
 
 <b>Packages backend</b>:
 - [mongoose](https://www.npmjs.com/package/mongoose)
