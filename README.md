@@ -1,6 +1,6 @@
 # Registration form
 
-Basic MERN app with CRUD functionality deployed to Heroku:
+MERN app with CRUD functionality deployed to Heroku:
 
 [Demo](https://reggg-form.herokuapp.com/)
 
