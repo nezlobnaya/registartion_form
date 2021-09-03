@@ -13,10 +13,15 @@ MERN app with CRUD functionality and Auth0 single sign-on deployed to Heroku:
 
 <b>Packages frontend</b>:
 - [axios](https://www.npmjs.com/package/axios)
-- [bootstrap](https://www.npmjs.com/package/bootstrap)
 - [moment](https://www.npmjs.com/package/moment)
 - [auth0](https://github.com/auth0/auth0-react)
-
+- 
+  <b>Styling<b/>:
+  - [bootstrap](https://www.npmjs.com/package/bootstrap)
+  - [react-bootstrap]( https://react-bootstrap.github.io/)
+  - [mdb react]( https://mdbootstrap.com/docs/react/)
+  
+ 
 <b>Packages backend</b>:
 - [mongoose](https://www.npmjs.com/package/mongoose)
 - [cors](https://www.npmjs.com/package/cors)
