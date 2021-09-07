@@ -2,7 +2,7 @@ describe('http example', () => {
     it('GET',function() {
         cy.request({
             method: 'GET',
-            url: 'http://localhost:8000/api/records',
+            url: 'http://localhost:8080/api/records',
         })
         .then(response => {
             expect(response.status).to.eq(200);
@@ -12,7 +12,7 @@ describe('http example', () => {
     })
 
     it('POST',function() {
-        cy.request('POST', 'http://localhost:8000/api/records', {
+        cy.request('POST', 'http://localhost:8080/api/records', {
             first_name: 'test',
             last_name: 'test',
                 address1: '730 West 178',
@@ -27,23 +27,24 @@ describe('http example', () => {
     })
 
     it('PUT',function() {
-        cy.request('PATCH', 'http://localhost:8000/api/records/6111c32b91fa9e5d04c185f2', {
+        cy.request('PATCH', 'http://localhost:8080/api/records/6111c32b91fa9e5d04c185f2', {
             first_name: 'test',
             last_name: 'test',
-            '_id': '6111c32b91fa9e5d04c185f2',
+            '_id': '6137b7e0de23c905681153ce',
                 address1: '730 West 178',
                 address2: '',
-                city: 'CCC',
+                city: 'SLC',
                 state: 'UT',
                 zip: '84606',
                 country: 'US',
         }).then(response => {
             expect(response.status).to.eq(200);
-            expect(response.body).to.have.property('city', 'CCC')})
+            expect(response.body).to.have.property('city', 'SLC')
+        })
 })
 
     it('DELETE',function() {
-        cy.request('DELETE', 'http://localhost:8000/api/records/6111c32b91fa9e5d04c185f2').then(response => {
+        cy.request('DELETE', 'http://localhost:8080/api/records/6111c32b91fa9e5d04c185f2').then(response => {
             expect(response.body).to.have.property('message', 'Record deleted successfully.')})
     })
 
