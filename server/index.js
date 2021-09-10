@@ -6,38 +6,18 @@ import dotenv from "dotenv";
 import recordsRoutes from "./routes/records/records.js";
 import  path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import jwt from "express-jwt";
-import jwks from "jwks-rsa";
-import guard from "express-jwt-permissions";
 
 dotenv.config();
 
 const server = express();
 
-const jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://dev-3wmnvfhu.us.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'https://registration-api.com',
-  issuer: 'https://dev-3wmnvfhu.us.auth0.com/',
-  algorithms: ['RS256']
-});
 
 
 server.use(bodyParser.json({  exceeded: true }));
 server.use(bodyParser.urlencoded({  extended: true }));
 server.use(cors());
 
-server.use(jwtCheck);
-
-server.use('/api', recordsRoutes )
-
-server.get('/authorized', function (req, res) {
-    res.send('Secured Resource');
-});
+server.use('/api', recordsRoutes );
 
 
 const __filename = fileURLToPath(import.meta.url);
