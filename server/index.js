@@ -12,13 +12,12 @@ dotenv.config();
 const server = express();
 
 
+
 server.use(bodyParser.json({  exceeded: true }));
 server.use(bodyParser.urlencoded({  extended: true }));
 server.use(cors());
 
-
-
-server.use('/api', recordsRoutes )
+server.use('/api', recordsRoutes );
 
 
 const __filename = fileURLToPath(import.meta.url);
