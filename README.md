@@ -4,7 +4,7 @@ MERN app with CRUD functionality, Auth0 single sign-on and authentication deploy
 
 [Demo](https://reggg-form.herokuapp.com/)
 
-# <b>Built with</b>
+# <b>Built with</b>:
 - [MongoDB](https://www.mongodb.com/)
 - [Express](https://expressjs.com/)
 - [React](https://reactjs.org)
@@ -15,11 +15,11 @@ MERN app with CRUD functionality, Auth0 single sign-on and authentication deploy
 - [axios](https://www.npmjs.com/package/axios)
 - [moment](https://www.npmjs.com/package/moment)
 - [auth0](https://github.com/auth0/auth0-react)
-- 
-  <b>Styling<b/>:
+- <b>Styling</b>:
   - [bootstrap](https://www.npmjs.com/package/bootstrap)
   - [react-bootstrap]( https://react-bootstrap.github.io/)
   - [mdb react]( https://mdbootstrap.com/docs/react/)
+  
   
  
 <b>Packages backend</b>:
@@ -28,7 +28,7 @@ MERN app with CRUD functionality, Auth0 single sign-on and authentication deploy
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce)
 - [path](https://www.npmjs.com/package/path)
 - [body-parser](https://www.npmjs.com/package/body-parser)
-- <b>Authentication<b/>:
+- <b>Authentication</b>:
   - [express-jwt](https://github.com/auth0/express-jwt)
   - [jwks-rsa](https://github.com/auth0/node-jwks-rsa)
 
