@@ -5,6 +5,7 @@ import moment from 'moment';
 import debounce from "lodash.debounce";
 import { MDBIcon } from 'mdbreact'
 import DeleteConfirmation from '../Modals/ModalDelete/DeleteConfirmation';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function RecordsList(props) {
@@ -14,10 +15,17 @@ function RecordsList(props) {
   const [id, setId] = useState(null);
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
 
+const { getAccessTokenSilently } = useAuth0();
 
   async function getRecords() {
     try {
-      const response = await axios.get("/api/records");
+      const token = await getAccessTokenSilently();
+      console.log("TOKEN",token);
+      const response = await axios.get("/api/records", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       setRecords(response.data);
     } catch(error) {
       console.log('error', error);

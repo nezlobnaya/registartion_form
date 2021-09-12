@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 import RecordData from "../models/models.js";
+import jwtCheck from "../auth/authorizeAccessToken.js";
 
 
-export const getRecords = async (req, res) => {
 
+export const getRecords = async (jwtCheck, req, res) => {
    try {
     const records = await RecordData.find();
 
@@ -14,7 +15,7 @@ export const getRecords = async (req, res) => {
    }
 }
 
-export const getRecord = async (req, res) => {
+export const getRecord = async (jwtCheck, req, res) => {
     try {
         const record = await RecordData.findById(req.params.id);
         res.status(200).json(record);
