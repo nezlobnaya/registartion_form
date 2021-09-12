@@ -20,7 +20,6 @@ const { getAccessTokenSilently } = useAuth0();
   async function getRecords() {
     try {
       const token = await getAccessTokenSilently();
-      console.log("TOKEN",token);
       const response = await axios.get("/api/records", {
         headers: {
           Authorization: `Bearer ${token}`
@@ -34,6 +33,7 @@ const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     getRecords();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let filteredRecords = records;
