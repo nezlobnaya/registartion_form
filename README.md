@@ -1,6 +1,6 @@
 # Registration form
 
-MERN app with CRUD functionality and Auth0 single sign-on deployed to Heroku:
+MERN app with CRUD functionality and Auth0 single sign-on and authentication deployed to Heroku:
 
 [Demo](https://reggg-form.herokuapp.com/)
 
@@ -28,6 +28,9 @@ MERN app with CRUD functionality and Auth0 single sign-on deployed to Heroku:
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce)
 - [path](https://www.npmjs.com/package/path)
 - [body-parser](https://www.npmjs.com/package/body-parser)
+- <b>Authentication<b/>:
+  - [express-jwt](https://github.com/auth0/express-jwt)
+  - [jwks-rsa](https://github.com/auth0/node-jwks-rsa)
 
 <b>Database</b>
 - [MongoDB](https://www.mongodb.com/)
