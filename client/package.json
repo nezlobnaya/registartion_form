@@ -15,7 +15,7 @@
     "eslint-plugin-cypress": "^2.11.3",
     "i": "^0.3.6",
     "mdbreact": "^5.1.0",
-    "mini-css-extract-plugin": "^2.2.2",
+    "mini-css-extract-plugin": "^0.11.3",
     "moment": "^2.29.1",
     "npm": "^7.22.0",
     "react": "^17.0.2",
