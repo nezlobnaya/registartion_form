@@ -66,7 +66,12 @@ const { getAccessTokenSilently } = useAuth0();
 
  async function handleDelete(){
     try {
-      const response = await axios.delete(`/api/records/${id}`);
+      const token = await getAccessTokenSilently();
+      const response = await axios.delete(`/api/records/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       if (response.data.message === "Record deleted successfully.") {
         setDeleteMessage("Record deleted successfully!");
         getRecords();

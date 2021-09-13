@@ -1,5 +1,6 @@
 import  { useState, useEffect } from "react"; 
 import axios from 'axios'; 
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function RecordEdit(props) {
@@ -7,10 +8,17 @@ function RecordEdit(props) {
   const [record, setRecord] = useState(initialState) 
   const [checked, setChecked] = useState(false)
 
+const { getAccessTokenSilently } = useAuth0();
+
   useEffect(()=>{
     async function fetchRecord (){
         try {
-            const response = await axios.get(`/api/records/${props.match.params.id}`);
+            const token = await getAccessTokenSilently();
+            const response = await axios.get(`/api/records/${props.match.params.id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                    }
+            });
             setRecord(response.data);
         }
         catch (error) {
@@ -18,6 +26,7 @@ function RecordEdit(props) {
         }
     }
     fetchRecord();          
+    // eslint-disable-next-line
     }, [props.match.params.id]);
 
 
@@ -35,7 +44,12 @@ function RecordEdit(props) {
 
     async function updateRecord() {
       try {
-         await axios.patch(`/api/records/${props.match.params.id}`, record); 
+         const token = await getAccessTokenSilently();
+         await axios.patch(`/api/records/${props.match.params.id}`, record, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+                }
+        }); 
          alert('Record updated successfully!');
         props.history.push('/records/'); 
       } catch(error) {
