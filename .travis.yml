@@ -1,3 +1,11 @@
 language: node_js
 node_js:
   - 14.15.4
+install: travis_wait mvn install
+script: mvn test
+after_success: travis_wait mvn verify
+after_failure: travis_wait mvn verify
+after_script: mvn verify
+notifications:
+  email: false
+        
