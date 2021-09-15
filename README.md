@@ -1,4 +1,4 @@
-![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FVladBurlutsky)![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nezlobnaya/registration_form?style=plastic)![GitHub branch checks state](https://img.shields.io/github/checks-status/nezlobnaya/registration_form/main)![Travis (.com)](https://img.shields.io/travis/com/nezlobnaya/registration_form)
+![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FVladBurlutsky)![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nezlobnaya/registration_form?style=plastic)![GitHub branch checks state](https://img.shields.io/github/checks-status/nezlobnaya/registration_form/main)[![Build Status](https://app.travis-ci.com/nezlobnaya/registration_form.svg?branch=main)](https://app.travis-ci.com/nezlobnaya/registration_form)
 
 # Registration form & Data Records
 
