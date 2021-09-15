@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cypress open",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "start": "node server/index.js",
