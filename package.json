@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "cypress open",
-    "cy:run": "npx cypress run",
+    "cy:run": "cypress run",
     "start": "node server/index.js",
     "server": "nodemon --delay 500ms --verbose server/index.js",
     "client": "cd client && npm run start",
