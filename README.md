@@ -1,4 +1,4 @@
-![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FVladBurlutsky)![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nezlobnaya/registration_form?style=plastic)
+![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FVladBurlutsky)![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nezlobnaya/registration_form?style=plastic)![GitHub branch checks state](https://img.shields.io/github/checks-status/nezlobnaya/registration_form/main)
 
 # Registration form & Data Records
 
