@@ -1,12 +1,12 @@
 import  { useState, useEffect } from "react"; 
 import axios from 'axios'; 
 import { useAuth0 } from "@auth0/auth0-react";
+import Toggle from "../hooks/useToggle/Toggle";
 
 
 function RecordEdit(props) {
   const initialState = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: []}
-  const [record, setRecord] = useState(initialState) 
-  const [checked, setChecked] = useState(false)
+  const [record, setRecord] = useState(initialState);
 
 const { getAccessTokenSilently } = useAuth0();
 
@@ -29,11 +29,6 @@ const { getAccessTokenSilently } = useAuth0();
     // eslint-disable-next-line
     }, [props.match.params.id]);
 
-
-  function toggle() {
-    setChecked(!checked)
-  
-  }
 
   function handleChange(event) { 
     setRecord({...record, [event.target.name]: event.target.value})
@@ -84,10 +79,7 @@ const { getAccessTokenSilently } = useAuth0();
         </div>
         <div className="form-group">
           <label>Address2</label>
-         <input type="checkbox"  onChange={toggle}  ></input>
-         {checked === true ? (
-           <input name="address2" placeholder="Enter Address 2" type="text"  value={record.address2} onChange={handleChange} className="form-control" required/>) :
-         (<input name="address2" type="text"  value={record.address2} onChange={handleChange} className="form-control" />)}
+          <Toggle value={record.address2} change={handleChange} name="address2" />
         </div>
         <div className="form-group">
           <label>City</label>

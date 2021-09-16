@@ -1,12 +1,12 @@
 import  { useState } from "react"; 
 import { post } from 'axios'; 
 import SuccessConfirmation from "../Modals/ModalConfirm/SuccessConfirmation";
+import Toggle from "../hooks/useToggle/Toggle";
 
 
 function RecordAdd(props) {
   const state = { first_name: '', last_name: '', address1: '', address2: '', city: '', state: '', zip: []}
   const [record, setRecord] = useState(state) 
-  const [checked, setChecked] = useState(false)
   const [errorMessage, setErrorMessage] = useState('');
   const [displaySuccessModal, setDisplaySuccessModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
@@ -21,12 +21,6 @@ function RecordAdd(props) {
     setSuccessMessage(null);
     props.history.push('/records/'); 
   };
-  
-
-  function toggle() {
-    setChecked(!checked)
-  
-  }
 
   function handleChange(event) { 
     setRecord({...record, [event.target.name]: event.target.value})
@@ -75,10 +69,7 @@ function RecordAdd(props) {
         </div>
         <div className="form-group">
           <label>Address2</label>
-         <input type="checkbox"  onChange={toggle}  ></input>
-         {checked === true ? (
-           <input name="address2" placeholder="Enter Address 2" type="text"  value={record.address2} onChange={handleChange} className="form-control" required/>) :
-         (<input name="address2" type="text"  value={record.address2} onChange={handleChange} className="form-control" />)}
+          <Toggle value={record.address2} change={handleChange} name="address2" />
         </div>
         <div className="form-group">
           <label>City</label>
