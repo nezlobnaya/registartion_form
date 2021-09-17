@@ -7,7 +7,7 @@ node_js:
 before_install:
   - npm install -g codecov
 script:
-  - jest --ci --coverage && codecov
+  - test --ci --coverage && codecov
   - codecov --token $CODECOV_TOKEN
 
 # if using Ubuntu 16 need this library
