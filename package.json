@@ -22,6 +22,10 @@
     "concurrently": "^6.2.1",
     "nodemon": "^2.0.12"
   },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
   "nodemonConfig": {
     "ignore": [
       "node_modules/**/*.js",
