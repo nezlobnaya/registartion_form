@@ -7,6 +7,7 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "test": "jest --verbose --watchAll",
     "start": "node server/index.js",
     "server": "nodemon --delay 500ms --verbose server/index.js",
     "client": "cd client && npm run start",

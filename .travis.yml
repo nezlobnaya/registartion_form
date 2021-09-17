@@ -8,7 +8,7 @@ before_install:
   - npm install -g codecov
 script:
   - jest --ci --coverage && codecov
-  - codecov
+  - codecov --token $CODECOV_TOKEN
 
 # if using Ubuntu 16 need this library
 # https://github.com/cypress-io/cypress-documentation/pull/1647
