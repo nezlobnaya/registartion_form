@@ -22,6 +22,31 @@ To get the server running locally:
 - `npm run server`: to start a local server in development environment with nodemon
 - `npm run dev `:to start a local server and a client concurrently
 
+## Environment Variables
+
+In order for the app to function correctly, the user must set up their own environment variables.
+
+1. create a .env file in the root directory that includes the following:
+
+```
+CONNECTION_URL=  // Your MongoDB connection URI
+PORT=8080  // Port number for express server to run on
+SKIP_PREFLIGHT_CHECK=true  // to disable this preflight check
+DOMAIN=  // your Auth0 domain
+CLIENT_ID=  // your Auth0 client ID
+AUDIENCE=  // your Auth0 audience 
+AUTH0_CLIENT_SECRET=  // your Auth0 client secret
+
+```
+
+2. create a .env file in the client directory that includes:
+
+```
+SKIP_PREFLIGHT_CHECK=true. // to disable this preflight check
+REACT_APP_AUTH0_DOMAIN= // your Auth0 domain
+REACT_APP_AUTH0_AUDIENCE= // your Auth0 audience 
+
+```
 
 # <b>Built with</b>:
 - [MongoDB](https://www.mongodb.com/)
