@@ -15,6 +15,13 @@ To get the server running locally:
 3. `cd client & npm install`
 4. Create an account on MongoDB and/or create new Cluster and add connection string to your root .env application file and connect to your server
 
+## Available Scripts
+
+- `npm start` to start the local server
+- `npm run test` to run test suite in watch mode
+- `npm run server`: to start a local server in development environment with nodemon
+- `npm run dev `:to start a local server and a client concurrently
+
 
 # <b>Built with</b>:
 - [MongoDB](https://www.mongodb.com/)
