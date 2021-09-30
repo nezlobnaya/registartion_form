@@ -6,6 +6,16 @@ MERN app with CRUD functionality, Auth0 single sign-on and authentication deploy
 
 [Demo](https://reggg-form.herokuapp.com/)
 
+## Getting Started
+
+To get the server running locally:
+
+1. `git clone <REPO>`
+2. `npm install`
+3. `cd client & npm install`
+4. Create an account on MongoDB and/or create new Cluster and add connection string to your root .env application file and connect to your server
+
+
 # <b>Built with</b>:
 - [MongoDB](https://www.mongodb.com/)
 - [Express](https://expressjs.com/)
